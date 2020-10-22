@@ -44,9 +44,6 @@ try:
 except:
     _has_pypdb = False
 
-# Flag that we've not yet raised a warning about GROMACS not being installed.
-_has_gmx_warned = False
-
 from Sire import Base as _SireBase
 from Sire import IO as _SireIO
 from Sire import Mol as _SireMol
@@ -243,12 +240,6 @@ def readMolecules(files, property_map={}):
        >>> system = BSS.IO.readMolecules(BSS.IO.glob("dir/*"))
     """
 
-    global _has_gmx_warned
-    if _gromacs_path is None and not _has_gmx_warned:
-        _warn("BioSimSpace.IO: Please install GROMACS (http://www.gromacs.org) "
-              "for GROMACS topology file support.")
-        _has_gmx_warned = True
-
     # Convert to a list.
     if type(files) is str:
         files = [files]
@@ -342,12 +333,6 @@ def saveMolecules(filebase, system, fileformat, property_map={}):
        >>> system = BSS.IO.readMolecules(["ala.rst7", "ala.prm7"], property_map={"charge" : "my-charge"})
        >>> BSS.IO.saveMolecules("test", system, ["gro87", "grotop"], property_map={"charge" : "my-charge"})
     """
-
-    global _has_gmx_warned
-    if _gromacs_path is None and not _has_gmx_warned:
-        _warn("BioSimSpace.IO: Please install GROMACS (http://www.gromacs.org) "
-              "for GROMACS topology file support.")
-        _has_gmx_warned = True
 
     # Check that the filebase is a string.
     if type(filebase) is not str:
