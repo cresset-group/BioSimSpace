@@ -53,8 +53,8 @@ try:
 except:
     _has_pypdb = False
 
-# Flag that we've not yet raised a warning about GROMACS not being installed.
-_has_gmx_warned = False
+# Hide the warning about GROMACS not being installed.
+_has_gmx_warned = True
 
 from sire.legacy import Base as _SireBase
 from sire.legacy import IO as _SireIO
