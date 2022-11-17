@@ -47,8 +47,8 @@ import sys as _sys
 import subprocess as _subprocess
 import warnings as _warnings
 
-# Flag that we've not yet raised a warning about GROMACS not being installed.
-_has_gmx_warned = False
+# Hide the warning about GROMACS not being installed.
+_has_gmx_warned = True
 
 import sire as _sire
 
