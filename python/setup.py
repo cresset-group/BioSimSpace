@@ -6,7 +6,8 @@ import platform
 try:
     import sire as _sr
 
-    _sr.use_mixed_api()
+    # Commented out as it's giving segmentation fault
+    #_sr.use_mixed_api()
 except ImportError:
     # a new version of sire is not installed
     pass
